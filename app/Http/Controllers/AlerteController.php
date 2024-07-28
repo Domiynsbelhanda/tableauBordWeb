@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alerte;
 use App\Models\User;
 use App\Notifications\AlerteReceived;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 

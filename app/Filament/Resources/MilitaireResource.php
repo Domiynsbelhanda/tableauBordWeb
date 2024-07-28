@@ -6,6 +6,7 @@ use App\Filament\Resources\MilitaireResource\Pages;
 use App\Filament\Resources\MilitaireResource\RelationManagers;
 use App\Models\Militaire;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -31,6 +32,10 @@ class MilitaireResource extends Resource
                 TextInput::make('matricule')->unique()->required(),
                 TextInput::make('grade')->required(),
                 Textarea::make('description'),
+                Select::make('patrouille_id')
+                    ->relationship('patrouille', 'nom')
+                    ->nullable()
+                    ->searchable(),
             ]);
     }
 

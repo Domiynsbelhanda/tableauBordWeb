@@ -14,6 +14,13 @@ class Militaire extends Model
         'prenom',
         'matricule',
         'grade',
-        'description'
+        'description',
+        'patrouille_id'
     ];
+
+
+    public function patrouille()
+    {
+        return $this->belongsTo(Patrouille::class, 'patrouille_id');
+    }
 }

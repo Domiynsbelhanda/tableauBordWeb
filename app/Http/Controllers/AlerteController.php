@@ -20,5 +20,6 @@ class AlerteController extends Controller
         Notification::send($users, new AlerteReceived($alerte));
 
         return response()->json($alerte, 201);
+
     }
 }

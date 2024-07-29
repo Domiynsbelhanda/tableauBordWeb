@@ -35,7 +35,6 @@ class MilitaireResource extends Resource
                 Select::make('patrouille_id')
                     ->relationship('patrouille', 'nom')
                     ->nullable()
-                    ->searchable(),
             ]);
     }
 

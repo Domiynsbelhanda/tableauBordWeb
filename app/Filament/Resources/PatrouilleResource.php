@@ -30,8 +30,7 @@ class PatrouilleResource extends Resource
             ->schema([
                 TextInput::make('nom')->required(),
                 Select::make('chef_patrouille_id')
-                    ->relationship('chefPatrouille', 'matricule')
-                    ->searchable(),
+                    ->relationship('chefPatrouille', 'matricule'),
                 TextInput::make('matricule')->unique()->required(),
                 TextInput::make('password')->password()->required(),
                 TextInput::make('plaque_vehicule')->required()

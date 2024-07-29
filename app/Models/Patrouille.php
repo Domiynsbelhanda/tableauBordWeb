@@ -17,4 +17,9 @@ class Patrouille extends Model
     {
         return $this->belongsTo(Militaire::class, 'chef_patrouille_id');
     }
+
+    public function alertes()
+    {
+        return $this->hasMany(Alerte::class);
+    }
 }

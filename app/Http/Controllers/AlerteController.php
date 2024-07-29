@@ -22,4 +22,29 @@ class AlerteController extends Controller
         return response()->json($alerte, 201);
 
     }
+
+    public function checkPatrouille(Request $request)
+    {
+        $validatedData = $request->validate([
+            'matricule' => 'required|string',
+            'password' => 'required|string'
+        ]);
+
+        $patrouille = \App\Models\Patrouille::where('matricule', $validatedData['matricule'])
+            ->where('password', $validatedData['password'])
+            ->first();
+
+        if (!$patrouille) {
+            return response()->json([
+                'message' => 'Invalid credentials'
+            ], 401);
+        }
+
+        $alertes = $patrouille->alertes; // Assurez-vous que la relation 'alertes' est définie dans le modèle Patrouille
+
+        return response()->json([
+            'patrouille' => $patrouille,
+            'alertes' => $alertes
+        ]);
+    }
 }
